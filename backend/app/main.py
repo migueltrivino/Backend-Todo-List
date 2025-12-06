@@ -10,7 +10,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://mi-app.netlify.app"
+        "https://todo-list-miguel.netlify.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],

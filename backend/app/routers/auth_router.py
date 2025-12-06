@@ -6,7 +6,6 @@ from ..services import auth_service
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 @router.post("/signup")
-@router.post("/signup")
 async def signup(user: UserCreate):
 
     existing_user = await user_crud.get_user_by_username(user.username)

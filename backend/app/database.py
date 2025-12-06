@@ -3,3 +3,4 @@ from .config import MONGO_URL
 
 client = AsyncIOMotorClient(MONGO_URL)
 db = client["notes_app"]
+print(db.list_collection_names())
