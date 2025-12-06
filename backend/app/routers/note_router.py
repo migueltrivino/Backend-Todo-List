@@ -18,10 +18,13 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 router = APIRouter(prefix="/notes", tags=["notes"])
 
 def serialize_note(note: dict) -> dict:
-    
-    note["_id"] = str(note["_id"])
-    note["owner_id"] = str(note["owner_id"])
-    return note
+    return {
+        "_id": str(note["_id"]),
+        "title": note.get("title", ""),
+        "content": note.get("content", ""),
+        "owner_id": str(note["owner_id"])
+    }
+
 
 @router.post("/", response_model=NoteOut)
 async def create_note(note: NoteCreate, user=Depends(get_current_user)):
@@ -44,7 +47,7 @@ async def update_note(note_id: str, note: NoteUpdate, user=Depends(get_current_u
     updated = await note_crud.update_note(
         ObjectId(note_id),
         ObjectId(user["id"]),
-        note.content
+        {"title": note.title, "content": note.content}
     )
     if not updated:
         raise HTTPException(status_code=404, detail="Note not found")

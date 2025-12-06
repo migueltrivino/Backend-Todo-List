@@ -24,14 +24,15 @@ async def get_note(note_id: str, owner_id: str):
         note["id"] = str(note["_id"])
     return note
 
-async def update_note(note_id: str, owner_id: str, content: str):
+async def update_note(note_id: str, owner_id: str, data: dict):
     result = await db.notes.update_one(
         {"_id": ObjectId(note_id), "owner_id": ObjectId(owner_id)},
-        {"$set": {"content": content}}
+        {"$set": data}
     )
     if result.modified_count:
         return await get_note(note_id, owner_id)
     return None
+
 
 async def delete_note(note_id: str, owner_id: str):
     result = await db.notes.delete_one({

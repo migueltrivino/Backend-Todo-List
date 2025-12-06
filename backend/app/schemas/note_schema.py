@@ -23,9 +23,11 @@ class NoteUpdate(BaseModel):
 
 class NoteOut(BaseModel):
     id: str = Field(alias="_id")
+    title: str
     content: str
     owner_id: str
 
     class Config:
         allow_population_by_field_name = True
-        json_encoders = {ObjectId: str}  
+        populate_by_name = True
+        json_encoders = {ObjectId: str}
