@@ -1,4 +1,4 @@
-# Backend – Instalación y Puesta en Marcha
+# Backend – Instalación
 Proyecto backend desarrollado con **Python 3.13.7** y **FastAPI**.
 
 ## Requisitos previos
