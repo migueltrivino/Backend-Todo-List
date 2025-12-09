@@ -15,28 +15,28 @@ Verifica tu versión de Python con:
 python --version
 ```
 
-## 📥 1. Clonar el repositorio (opcional)
+## 1. Clonar el repositorio (opcional)
 
 ```bash
 git clone https://tu-repo.git
 cd backend
 ```
 
-## 🧱 2. Crear y activar un entorno virtual
+## 2. Crear y activar un entorno virtual
 
-### ✔ Windows
+### Windows
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-### ✔ Linux / Mac
+### Linux / Mac
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-## 📦 3. Instalar dependencias
+## 3. Instalar dependencias
 
 Asegúrate de tener el archivo **requirements.txt** y ejecuta:
 
@@ -44,7 +44,7 @@ Asegúrate de tener el archivo **requirements.txt** y ejecuta:
 pip install -r requirements.txt
 ```
 
-## ▶ 4. Ejecutar el servidor FastAPI
+## 4. Ejecutar el servidor FastAPI
 
 ```bash
 uvicorn app.main:app --reload
